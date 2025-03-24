@@ -19,8 +19,9 @@ public class Anggota {
     private int idKota;
     private String email;
     private int idOrganisasi;
+    private String namaOrganisasi;
 
-    public Anggota(int id,String nama, String jenis, String alamat, String telepon, String tanggalDaftar,String jenisKelamin, int idKota, String email, int idOrganisasi) {
+    public Anggota(int id,String nama, String jenis, String alamat, String telepon, String tanggalDaftar,String jenisKelamin, int idKota, String email, int idOrganisasi, String namaOrganisasi) {
         this.id = id;
         this.nama = nama;
         this.jenis = jenis;
@@ -31,14 +32,25 @@ public class Anggota {
         this.idKota = idKota;
         this.email = email;
         this.idOrganisasi = idOrganisasi;
+        this.namaOrganisasi = namaOrganisasi;
+        
+    }
+    
+    public Anggota(String nama, String jenis, String alamat, String telepon, String tanggalDaftar,String jenisKelamin, int idKota, String email, int idOrganisasi, String namaOrganisasi) {
+        this.nama = nama;
+        this.jenis = jenis;
+        this.alamat = alamat;
+        this.telepon = telepon;
+        this.tanggalDaftar = tanggalDaftar;
+        this.jenisKelamin = jenisKelamin;
+        this.idKota = idKota;
+        this.email = email;
+        this.idOrganisasi = idOrganisasi;
+        this.namaOrganisasi = namaOrganisasi;
         
     }
     public int getId(){
         return id;
-    }
-    
-    public void setId(int id){
-        this.id = id;
     }
     
     public String getNama(){
@@ -92,11 +104,19 @@ public class Anggota {
     public void setemail(String email){
         this.email = email;
     }
+
+    public String getNamaOrganisasi() {
+        return namaOrganisasi;
+    }
+
+    public void setNamaOrganisasi(String namaOrganisasi) {
+        this.namaOrganisasi = namaOrganisasi;
+    }
     public int getIdOrganisasi(){
         return idOrganisasi;
     }
     public void setidOrganisasi(int idOrganisasi){
         this.idOrganisasi = idOrganisasi;
     }
- 
+
 }

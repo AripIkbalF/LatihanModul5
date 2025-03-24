@@ -15,7 +15,10 @@ public class AnggotaDAO {
   
      public static ObservableList<Anggota> getAnggota() {
         ObservableList<Anggota> anggotaList = FXCollections.observableArrayList();
-        String query = "SELECT * FROM anggota";
+        String query = "SELECT anggota.*, kota.nama AS nama_kota, organisasi.nama AS nama_organisasi " +
+                   "FROM anggota " +
+                   "INNER JOIN kota ON anggota.id_kota = kota.id " +
+                   "INNER JOIN organisasi ON anggota.id_organisasi = organisasi.id";
 
         try (Connection koneksi = DBConnection.getConnection();
              Statement stmt = koneksi.createStatement();
@@ -32,8 +35,9 @@ public class AnggotaDAO {
                 int idKota = rs.getInt("id_kota");
                 String email = rs.getString("email");
                 int idOrganisasi = rs.getInt("id_organisasi");
+                String nama_Organisasi = rs.getString("nama_Organisasi");
 
-                anggotaList.add(new Anggota(id, nama, jenis, alamat, telepon, tanggalDaftar, jenisKelamin, idKota, email, idOrganisasi));
+                anggotaList.add(new Anggota(id, nama, jenis, alamat, telepon, tanggalDaftar, jenisKelamin, idKota, email, idOrganisasi, nama_Organisasi));
             }
 
         } catch (SQLException e) {
@@ -44,21 +48,21 @@ public class AnggotaDAO {
     }
 
     public static void addAnggota(Anggota anggota) {
-        String query = "INSERT INTO anggota (id, nama, jenis, alamat, telepon, tanggal_daftar, jenis_Kelamin, id_kota, email, id_organisasi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO anggota (nama, jenis, alamat, telepon, tanggal_daftar, jenis_Kelamin, id_kota, email, id_organisasi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
 
         try (Connection koneksi = DBConnection.getConnection();
              PreparedStatement smt = koneksi.prepareStatement(query)) {
 
-            smt.setInt(1, anggota.getId());
-            smt.setString(2, anggota.getNama());
-            smt.setString(3, anggota.getJenis());
-            smt.setString(4, anggota.getAlamat());
-            smt.setString(5, anggota.gettelepon());
-            smt.setString(6, anggota.gettanggalDaftar());
-            smt.setString(7, anggota.getJenisKelamin());
-            smt.setInt(8, anggota.getidKota());
-            smt.setString(9, anggota.getemail());
-            smt.setInt(10, anggota.getIdOrganisasi());
+            smt.setString(1, anggota.getNama());
+            smt.setString(2, anggota.getJenis());
+            smt.setString(3, anggota.getAlamat());
+            smt.setString(4, anggota.gettelepon());
+            smt.setString(5, anggota.gettanggalDaftar());
+            smt.setString(6, anggota.getJenisKelamin());
+            smt.setInt(7, anggota.getidKota());
+            smt.setString(8, anggota.getemail());
+            smt.setInt(9, anggota.getIdOrganisasi());
 
             smt.executeUpdate();
 

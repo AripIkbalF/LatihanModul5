@@ -34,6 +34,8 @@ public class MasterDataController implements Initializable{
     private Button btnDashboard;
     @FXML
     private Button buttonLogout;
+    @FXML
+    private Button btnMasterData;
 
     @FXML
     private void handleButtonDashboard(ActionEvent event) throws Exception {
@@ -46,6 +48,13 @@ public class MasterDataController implements Initializable{
         Main main = new Main();
         main.changeScene("Main.fxml");
     }
+    
+    @FXML
+    private void handleButtonMasterAction(ActionEvent event) throws Exception {        
+        Main main = new Main();
+        main.changeScene("MasterData.fxml");
+}
+
 
     // untuk bagian CRUD Kota
     
@@ -284,7 +293,7 @@ public class MasterDataController implements Initializable{
         colIdAnggota.setCellValueFactory(new PropertyValueFactory<>("id"));
         colNamaAnggota.setCellValueFactory(new PropertyValueFactory<>("nama"));
         colJenisKelamin.setCellValueFactory(new PropertyValueFactory<>("jenisKelamin"));
-        colOrganisasi.setCellValueFactory(new PropertyValueFactory<>("idOrganisasi"));
+        colOrganisasi.setCellValueFactory(new PropertyValueFactory<>("NamaOrganisasi"));
         loadDataAnggota();
 
         // Menambahkan event listener ke tabel kota
@@ -375,7 +384,7 @@ public class MasterDataController implements Initializable{
             return;
         }
 
-        Anggota newAnggota = new Anggota(0, nama, "", alamat, telepon, tanggalDaftar, jenisKelamin, idKota, email, idOrganisasi);
+        Anggota newAnggota = new Anggota(nama, "", alamat, telepon, tanggalDaftar, jenisKelamin, idKota, email, idOrganisasi, "");
         AnggotaDAO.addAnggota(newAnggota);
         loadDataAnggota();
         clearFields();
@@ -427,8 +436,7 @@ public class MasterDataController implements Initializable{
 }
      
     /**
-     * Initializes the controller class.
+     * Initializes the controller class.
      */
-
     
     

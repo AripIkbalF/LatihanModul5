@@ -101,11 +101,11 @@
                               <RadioButton fx:id="rdoJenisAng2" layoutX="182.0" layoutY="61.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="61.0" text="Dosen" toggleGroup="$groupJenisAng" />
                               <RadioButton fx:id="rdoJenisAng3" layoutX="244.0" layoutY="62.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="82.0" text="Staff" toggleGroup="$groupJenisAng" />
                               <Label layoutX="386.0" layoutY="60.0" text="Jenis Kelamin" />
-                              <RadioButton fx:id="rdoJenisKelaminL" layoutX="465.0" layoutY="59.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="82.0" text="Laki-laki">
+                              <RadioButton fx:id="rdoJenisKelaminL" layoutX="465.0" layoutY="59.0" mnemonicParsing="false" prefHeight="12.0" prefWidth="82.0" text="L">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="groupJenisKelamin" />
                                  </toggleGroup></RadioButton>
-                              <RadioButton fx:id="rdoJenisKelaminP" layoutX="559.0" layoutY="59.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="88.0" text="Perempuan" toggleGroup="$groupJenisKelamin" />
+                              <RadioButton fx:id="rdoJenisKelaminP" layoutX="559.0" layoutY="59.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="88.0" text="P" toggleGroup="$groupJenisKelamin" />
                               <Label layoutX="41.0" layoutY="98.0" text="Alamat" />
                               <TextField fx:id="txtAlamat" layoutX="93.0" layoutY="93.0" prefHeight="26.0" prefWidth="267.0" />
                               <Label layoutX="390.0" layoutY="98.0" text="Kota" />
